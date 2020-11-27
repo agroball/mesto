@@ -1,4 +1,4 @@
-.element__header_like {
+.element__like {
     cursor: pointer;
     transition: 0.5s linear;
     width: 20px;
@@ -6,6 +6,6 @@
     align-self: center;
 }
 
-.element__header_like:hover {
+.element__like:hover {
     opacity: 0.6;
 }

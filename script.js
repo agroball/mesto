@@ -6,7 +6,7 @@ let profileTitleNode = document.querySelector('.profile__title');
 let formButtonNode = document.querySelector('.form__button');
 let profileParagraphNode = document.querySelector('.profile__paragraph');
 
-let elementHeaderLikes = document.querySelectorAll('.element__header_like');
+let elementHeaderLikes = document.querySelectorAll('.element__like');
 
 
 editButton.addEventListener('click', togglePopupVisibility);
@@ -36,5 +36,5 @@ elementHeaderLikes.forEach((elementHeaderLike) => {
 
 
 function toggleLikecolor(event) {
-    event.target.classList.toggle('element__header_like_black');
+    event.target.classList.toggle('element__like_black');
 }
