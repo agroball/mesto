@@ -1,0 +1,11 @@
+.element__header_like {
+    cursor: pointer;
+    transition: 0.5s linear;
+    width: 20px;
+    height: 18px;
+    align-self: center;
+}
+
+.element__header_like:hover {
+    opacity: 0.6;
+}
