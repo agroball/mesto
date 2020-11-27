@@ -1,33 +1,95 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./style.css">
-        <title>Mesto</title>
-    </head>
-    <body class="body">
-<header class="header">
-    <img class="header__logo" src="./images/header.logo.png"></img>
-    <div class="header__line"></div>
-</header>
-<main class="main">
+<html lang="ru">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./vendor/normalize.css">
+    <link rel="stylesheet" href="./vendor/fonts/fonts.css">
+    <title>Mesto</title>
+</head>
 
+<body class="body">
+    <header class="header">
+        <img class="header__logo" src="./images/header.logo.png" alt="Header Logo">
+        <div class="header__line"></div>
+    </header>
+    <main class="main">
+        <section class="profile">
+            <div class="profile__header">
+                <img class="avatar" src="images/image.jpg" alt="Your Avatar">
+                <div class="profile__info">
+                    <div class="profile__line">
+                        <h1 class="profile__title">Жак-Ив Кусто</h1>
+                        <img class="profile__editbutton" src="images/Edit Button.svg" alt="Edit Button">
+                    </div>
+                    <p class="profile__paragraph">Исследователь океана</p>
+                </div>
+            </div>
+            <div class="profile__addbutton">
+                <img class="vector" src="./images/Vector.png" alt="Add Profile">
+            </div>
+        </section>
+        <section class="Elements">
+            <div class="Element">
+                <img src="images/kirill-pershin-1088404-unsplash.png" alt="photos of places">
+                <div class="Element__header">
+                    <h2 class="Element__header_text">Карачаевск</h2>
+                    <img class="Element__header_like" src="images/heart.svg" alt="Heart like">
+                </div>
+            </div>
 
+            <div class="Element">
+                <img src="images/kirill-pershin-1404681-unsplash.png" alt="photos of places">
+                <div class="Element__header">
+                    <h2 class="Element__header_text">Гора Эльбрус</h2>
+                    <img class="Element__header_like" src="images/heart.svg" alt="Heart like">
+                </div>
+            </div>
+            <div class="Element">
+                <img src="/images/kirill-pershin-1556355-unsplash.png" alt="photos of places">
+                <div class="Element__header">
+                    <h2 class="Element__header_text">Домбай</h2>
+                    <img class="Element__header_like" src="images/heart.svg" alt="Heart like">
+                </div>
+            </div>
+            <div class="Element">
+                <img src="images/kirill-pershin-1088404-unsplash.png" alt="photos of places">
+                <div class="Element__header">
+                    <h2 class="Element__header_text">Гора Эльбрус</h2>
+                    <img class="Element__header_like" src="images/heart.svg" alt="Heart like">
+                </div>
+            </div>
+            <div class="Element">
+                <img src="images/kirill-pershin-1404681-unsplash.png" alt="photos of places">
+                <div class="Element__header">
+                    <h2 class="Element__header_text">Домбай</h2>
+                    <img class="Element__header_like" src="images/heart.svg" alt="Heart like">
+                </div>
+            </div>
+            <div class="Element">
+                <img src="/images/kirill-pershin-1556355-unsplash.png" alt="photos of places">
+                <div class="Element__header">
+                    <h2 class="Element__header_text">Карачаево-Черкессия</h2>
+                    <img class="Element__header_like" src="images/heart.svg" alt="Heart like">
+                </div>
+            </div>
+        </section>
+        <section class="popup">
+            <div class="popup__overlay"></div>
+            <button type="button" class="popup__close-button"></button>
+            <form class="form">
+                <h3 class="form__header">Редактировать профиль</h3>
+                <input type="text" class="form__name" placeholder="Жак-Ив Кусто">
+                <input type="text" class="form__job" placeholder="Исследователь океана">
+                <button type="submit" class="form__button">Сохранить</button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__copyright">© 2020 Mesto Russia</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
 
-
-    
-</main>
-
-
-
-
-
-
-
-
-
-
-        <script src="script.js"></script>
-    </body>
 </html>
