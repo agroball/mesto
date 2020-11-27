@@ -3,7 +3,6 @@
     height: 24px;
     cursor: pointer;
     transition: 0.5s linear;
-    cursor: pointer;
 }
 
 .profile__editbutton:hover {
