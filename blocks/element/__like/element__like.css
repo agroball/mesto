@@ -2,6 +2,7 @@
     cursor: pointer;
     transition: 0.5s linear;
     width: 20px;
+    height: 20px;
     align-self: center;
 }
 
