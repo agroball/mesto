@@ -3,7 +3,7 @@
     width: 68.75%;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 1250px) {
     .main {
         width: 100%;
     }

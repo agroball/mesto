@@ -4,7 +4,7 @@
     max-width: 68.75%;
 }
 
-@media screen and (max-width:320px) {
+@media screen and (max-width:1250px) {
     .footer {
         margin-top: 4px;
         margin-left: 19px;
