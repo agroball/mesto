@@ -1,6 +1,6 @@
 .element {
     border-radius: 10px;
-    background-image: url(/images/Rectangle.png);
+    background-image: url(../../images/Rectangle.png);
     width: 282px;
     height: 362px;
 }
