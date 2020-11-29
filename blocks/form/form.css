@@ -1,19 +1,19 @@
 .form {
-    position: fixed;
-    width: 430px;
+    position: absolute;
+    min-width: 430px;
     background-color: #ffffff;
     border-radius: 10px;
     display: flex;
-    top: 195px;
-    left: 425px;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
     flex-direction: column;
     padding-bottom: 49px;
 }
 
 @media screen and (max-width: 320px) {
     .form {
-        left: 19px;
-        width: 282px;
+        min-width: 282px;
         padding-bottom: 53px;
     }
 }

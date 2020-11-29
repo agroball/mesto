@@ -1,12 +1,17 @@
 .form__name {
-    width: 358px;
+    min-width: 358px;
     margin: 43px auto 0;
     border: none;
     border-bottom: 1px solid #000000;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
 }
 
 @media screen and (max-width: 320px) {
     .form__name {
-        width: 238px;
+        min-width: 238px;
     }
 }

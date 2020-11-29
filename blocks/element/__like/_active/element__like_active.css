@@ -1,4 +1,5 @@
-.element__like_black {
+.element__like_active {
     background-image: url(../../../../images/Black.png);
     background-repeat: no-repeat;
+    border: none;
 }

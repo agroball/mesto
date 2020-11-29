@@ -8,33 +8,36 @@ let profileParagraphNode = document.querySelector('.profile__paragraph');
 
 let elementHeaderLikes = document.querySelectorAll('.element__like');
 
+let forms = document.querySelector('.form');
+
+let firstNameInput = document.getElementById('1');
+let secondNameInput = document.getElementById('2');
+
+firstNameInput.value = profileTitleNode.textContent;
+secondNameInput.value = profileParagraphNode.textContent;
+
 
 editButton.addEventListener('click', togglePopupVisibility);
 closeButton.addEventListener('click', togglePopupVisibility);
 
 function togglePopupVisibility() {
-    popup.classList.toggle('popup__opened');
+    popup.classList.toggle('popup_opened');
+
 }
 
-let forms = [...document.querySelectorAll('.form')];
-
-forms.forEach((formNode) => {
-    formNode.addEventListener('submit', handleFormSubmit);
-});
+forms.addEventListener('submit', handleFormSubmit);
+forms.addEventListener('submit', togglePopupVisibility);
 
 function handleFormSubmit(event) {
     event.preventDefault();
-    let formNameNode = event.currentTarget.querySelector('.form__name');
-    let formJobNode = event.currentTarget.querySelector('.form__job');
-    profileTitleNode.textContent = formNameNode.value;
-    profileParagraphNode.textContent = formJobNode.value;
+    profileTitleNode.textContent = firstNameInput.value;
+    profileParagraphNode.textContent = secondNameInput.value;
 }
 
 elementHeaderLikes.forEach((elementHeaderLike) => {
     elementHeaderLike.addEventListener('click', toggleLikecolor);
 });
 
-
 function toggleLikecolor(event) {
-    event.target.classList.toggle('element__like_black');
+    event.target.classList.toggle('element__like_active');
 }

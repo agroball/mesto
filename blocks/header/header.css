@@ -5,6 +5,9 @@
     margin: 45px auto 0;
     width: 68.75%;
     gap: 41px;
+    border-bottom: 1px solid #545454;
+    opacity: 0.7;
+    padding-bottom: 41px;
 }
 
 @media screen and (max-width: 320px) {

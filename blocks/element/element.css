@@ -1,5 +1,5 @@
 .element {
     border-radius: 10px;
     background-image: url(../../images/White.png);
-    width: 282px;
+    max-width: 282px;
 }
