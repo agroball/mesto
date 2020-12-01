@@ -1,8 +1,9 @@
 .body {
     background-color: #000000;
-    position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
     overflow-x: hidden;
+    max-width: 1280px;
+    margin: 0 auto 0;
 }
