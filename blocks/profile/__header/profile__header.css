@@ -5,7 +5,7 @@
     gap: 30px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 1250px) {
     .profile__header {
         flex-direction: column;
         gap: 25px;
