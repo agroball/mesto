@@ -89,7 +89,7 @@ function ComposeItem(item) {
     const textItem = NewItem.querySelector(".element__text");
     textItem.textContent = item.name;
     const imageElement = NewItem.querySelector(".element__link");
-    imageElement.setAttribute("src", item.link);
+    imageElement.src = item.link;
     const removeButton = NewItem.querySelector('.element__trash');
     removeButton.addEventListener('click', removeItem);
     // Луйки
