@@ -2,4 +2,6 @@
     border-radius: 10px;
     background-image: url(../../images/White.png);
     max-width: 282px;
+    position: relative;
+    cursor: pointer;
 }

@@ -27,49 +27,6 @@
             <button class="profile__addbutton" type="button"></button>
         </section>
         <section class="elements">
-            <div class="element">
-                <img src="./images/kirill-pershin-1088404-unsplash.png" alt="Фото мест">
-                <div class="element__header">
-                    <h2 class="element__text">Карачаевск</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="./images/kirill-pershin-1404681-unsplash.png" alt="Фото мест">
-                <div class="element__header">
-                    <h2 class="element__text">Гора Эльбрус</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="./images/kirill-pershin-1556355-unsplash.png" alt="Фото мест">
-                <div class="element__header">
-                    <h2 class="element__text">Домбай</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="./images/kirill-pershin-1088404-unsplash.png" alt="Фото мест">
-                <div class="element__header">
-                    <h2 class="element__text">Гора Эльбрус</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="./images/kirill-pershin-1404681-unsplash.png" alt="Фото мест">
-                <div class="element__header">
-                    <h2 class="element__text">Домбай</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img src="./images/kirill-pershin-1556355-unsplash.png" alt="Фото мест">
-                <div class="element__header">
-                    <h2 class="element__text">Карачаево-Черкессия</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </div>
         </section>
     </main>
     <footer class="footer">
@@ -78,7 +35,7 @@
     <section class="popup">
         <div class="popup__container">
             <button class="popup__close-button" type="button"></button>
-            <form class="form" name="form">
+            <form class="form" name="form" id="formProfile">
                 <h2 class="form__header">Редактировать профиль</h2>
                 <input id="1" name="name" type="text" class="form__name">
                 <input id="2" name="job" type="text" class="form__name">
@@ -86,6 +43,34 @@
             </form>
         </div>
     </section>
+    <section class="popup-add">
+        <div class="popup-add__container">
+            <button class="popup-add__close-button" type="button"></button>
+            <form class="form" name="form" id="formAddCard">
+                <h2 class="form__header">Новое Место</h2>
+                <input id="title" name="title" type="text" class="form__name" placeholder="Название">
+                <input id="link" name="link" type="text" class="form__name" placeholder="Ссылка на картинку">
+                <button type="submit" class="form__button" id="submitAdd">Создать</button>
+            </form>
+        </div>
+    </section>
+    <section class="popup-image">
+        <div class="popup-image__container">
+            <button class="popup-image__close-button" type="button"></button>
+            <img class="popup-image__image" alt="Фото мест">
+            <h3 class="popup-image__title"></h3>
+        </div>
+    </section>
+    <template class="template">
+        <div class="element"> 
+            <img class="element__link" alt="Фото мест"> 
+            <div class="element__header"> 
+                <h2 class="element__text"></h2> 
+                <button class="element__like" type="button"></button> 
+                <button class="element__trash" type="button"></button>
+            </div> 
+        </div> 
+    </template>
     <script src="./script/script.js"></script>
 </body>
 
