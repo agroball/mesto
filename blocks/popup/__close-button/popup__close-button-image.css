@@ -1,4 +1,4 @@
-.popup__close-button_image {
+.popup__close-button-image {
     background: rgba(0, 0, 0, 0);
     width: 40px;
     height: 40px;
@@ -12,12 +12,12 @@
     right: -4%;
 }
 
-.popup__close-button_image:hover {
+.popup__close-button-image:hover {
     opacity: 0.6;
 }
 
 @media screen and (max-width: 320px) {
-    .popup__close-button_image {
+    .popup__close-button-image {
         top: -20%;
         left: 88%;
         width: 26px;
