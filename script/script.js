@@ -1,3 +1,4 @@
+//Переменные
 const closeButton = document.querySelector(".popup__close-button");
 const editButton = document.querySelector(".profile__editbutton");
 const addButton = document.querySelector(".profile__addbutton");
@@ -18,7 +19,32 @@ const inputElementLink = document.getElementById("link");
 const templateElement = document.querySelector(".template");
 const popupElementImage = document.querySelector('.popup__image');
 const popupElementTitle = document.querySelector('.popup__title');
-
+const initialCards = [{
+        name: "Архыз",
+        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+    },
+    {
+        name: "Челябинская область",
+        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+    },
+    {
+        name: "Иваново",
+        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+    },
+    {
+        name: "Камчатка",
+        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+    },
+    {
+        name: "Холмогорский район",
+        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+    },
+    {
+        name: "Байкал",
+        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+    },
+];
+//Функции
 function openPopup(popup) {
     popup.classList.add("popup_opened");
 }
@@ -51,60 +77,12 @@ function addNewItem(event) {
     const newItem = composeItem({ name: inputTitle, link: inputLink });
     listContainerElements.prepend(newItem);
     closePopup(popupAdd);
+    formsAdd.reset();
 }
 
 function removeItem(e) {
     e.target.closest('.element').remove();
 }
-
-addButton.addEventListener("click", () => {
-    openPopup(popupAdd);
-});
-editButton.addEventListener("click", () => {
-    firstNameInput.value = profileTitleNode.textContent;
-    secondNameInput.value = profileParagraphNode.textContent;
-    openPopup(popup);
-});
-
-closeButton.addEventListener("click", () => {
-    closePopup(popup);
-});
-closeAddButton.addEventListener("click", () => {
-    closePopup(popupAdd);
-});
-
-closeImageButton.addEventListener("click", () => {
-    closePopup(popupImage);
-});
-
-forms.addEventListener("submit", handleFormSubmit);
-
-// Массив
-let initialCards = [{
-        name: "Архыз",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-    },
-    {
-        name: "Челябинская область",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-    },
-    {
-        name: "Иваново",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-    },
-    {
-        name: "Камчатка",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-    },
-    {
-        name: "Холмогорский район",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-    },
-    {
-        name: "Байкал",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-    },
-];
 
 function composeItem(item) {
     const newItem = templateElement.content.cloneNode(true);
@@ -129,6 +107,28 @@ function composeItem(item) {
     });
     return newItem;
 }
+//Обработчики
+addButton.addEventListener("click", () => {
+    openPopup(popupAdd);
+});
+editButton.addEventListener("click", () => {
+    firstNameInput.value = profileTitleNode.textContent;
+    secondNameInput.value = profileParagraphNode.textContent;
+    openPopup(popup);
+});
 
+closeButton.addEventListener("click", () => {
+    closePopup(popup);
+});
+closeAddButton.addEventListener("click", () => {
+    closePopup(popupAdd);
+});
+
+closeImageButton.addEventListener("click", () => {
+    closePopup(popupImage);
+});
+
+forms.addEventListener("submit", handleFormSubmit);
+//Вызов функций
 renderList();
 bindAddItemListener();
