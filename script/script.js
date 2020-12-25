@@ -1,15 +1,15 @@
 //Переменные
-const closeButton = document.querySelector(".popup__close-button");
+const profilePopup = document.getElementById("profilePopup");
+const closeButton = profilePopup.querySelector(".popup__close-button");
 const editButton = document.querySelector(".profile__editbutton");
 const addButton = document.querySelector(".profile__addbutton");
-const popup = document.getElementById("profilePopup");
 const popupAdd = document.getElementById("addPopup");
 const closeAddButton = document.getElementById("closeAddButton");
 const popupImage = document.getElementById("imagePopup");
 const closeImageButton = document.querySelector(".popup__close-button-image");
 const profileTitleNode = document.querySelector(".profile__title");
 const profileParagraphNode = document.querySelector(".profile__paragraph");
-const forms = document.getElementById("formProfile");
+const profileForm = document.getElementById("formProfile");
 const formsAdd = document.getElementById("formAddCard");
 const firstNameInput = document.getElementById("name");
 const secondNameInput = document.getElementById("job");
@@ -62,7 +62,7 @@ function handleFormSubmit(event) {
     event.preventDefault();
     profileTitleNode.textContent = firstNameInput.value;
     profileParagraphNode.textContent = secondNameInput.value;
-    closePopup(popup);
+    closePopup(profilePopup);
 }
 
 function handlePressButton(evt) {
@@ -84,8 +84,7 @@ function renderList() {
 }
 
 function bindAddItemListener() {
-    const addButtonElement = document.getElementById("submitAdd");
-    addButtonElement.addEventListener("click", addNewItem);
+    formsAdd.addEventListener("submit", addNewItem);
 }
 
 function addNewItem(event) {
@@ -132,11 +131,11 @@ addButton.addEventListener("click", () => {
 editButton.addEventListener("click", () => {
     firstNameInput.value = profileTitleNode.textContent;
     secondNameInput.value = profileParagraphNode.textContent;
-    openPopup(popup);
+    openPopup(profilePopup);
 });
 
 closeButton.addEventListener("click", () => {
-    closePopup(popup);
+    closePopup(profilePopup);
 });
 closeAddButton.addEventListener("click", () => {
     closePopup(popupAdd);
@@ -146,7 +145,7 @@ closeImageButton.addEventListener("click", () => {
     closePopup(popupImage);
 });
 
-forms.addEventListener("submit", handleFormSubmit);
+profileForm.addEventListener("submit", handleFormSubmit);
 //Вызов функций
 renderList();
 bindAddItemListener();
