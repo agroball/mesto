@@ -19,6 +19,7 @@ const inputElementLink = document.getElementById("link");
 const templateElement = document.querySelector(".template");
 const popupElementImage = document.querySelector('.popup__image');
 const popupElementTitle = document.querySelector('.popup__title');
+const submitElementProfile = document.getElementById("submitProfile");
 const initialCards = [{
         name: "Архыз",
         link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
@@ -47,10 +48,14 @@ const initialCards = [{
 //Функции
 function openPopup(popup) {
     popup.classList.add("popup_opened");
+    document.addEventListener('keydown', handlePressButton);
+    document.addEventListener('click', handleOverlayClick);
 }
 
 function closePopup(popup) {
     popup.classList.remove("popup_opened");
+    document.removeEventListener('keydown', handlePressButton);
+    document.removeEventListener('click', handleOverlayClick);
 }
 
 function handleFormSubmit(event) {
@@ -58,6 +63,19 @@ function handleFormSubmit(event) {
     profileTitleNode.textContent = firstNameInput.value;
     profileParagraphNode.textContent = secondNameInput.value;
     closePopup(popup);
+}
+
+function handlePressButton(evt) {
+    if (evt.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_opened');
+        closePopup(openedPopup);
+    }
+}
+
+function handleOverlayClick(evt) {
+    if (evt.target.classList.contains('popup_opened')) {
+        closePopup(evt.target);
+    }
 }
 
 function renderList() {

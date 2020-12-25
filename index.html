@@ -35,21 +35,25 @@
     <section class="popup" id="profilePopup">
         <div class="popup__container">
             <button class="popup__close-button" type="button"></button>
-            <form class="form" name="form" id="formProfile">
+            <form class="form" name="form" id="formProfile" novalidate>
                 <h2 class="form__header">Редактировать профиль</h2>
-                <input id="name" name="name" type="text" class="form__name" placeholder="Имя">
-                <input id="job" name="job" type="text" class="form__name" placeholder="Работа">
-                <button type="submit" class="form__button">Сохранить</button>
+                <input id="name" name="name" type="text" minlength="2" maxlength="40" class="form__name" placeholder="Имя" required>
+                <span id="name-error" class="error"></span>
+                <input id="job" name="job" type="text" minlength="2" maxlength="200" class="form__name" placeholder="Работа" required>
+                <span id="job-error" class="error"></span>
+                <button type="submit" class="form__button" id="submitProfile">Сохранить</button>
             </form>
         </div>
     </section>
     <section class="popup" id="addPopup">
         <div class="popup__container">
             <button class="popup__close-button" type="button" id="closeAddButton"></button>
-            <form class="form" name="form" id="formAddCard">
+            <form class="form" name="form" id="formAddCard" novalidate>
                 <h2 class="form__header">Новое Место</h2>
-                <input id="title" name="title" type="text" class="form__name" placeholder="Название">
+                <input id="title" name="title" type="text" minlength="2" maxlength="30" class="form__name" placeholder="Название" required>
+                <span id="title-error" class="error"></span>
                 <input id="link" name="link" type="url" class="form__name" placeholder="Ссылка на картинку" required>
+                <span id="link-error" class="error"></span>
                 <button type="submit" class="form__button" id="submitAdd">Создать</button>
             </form>
         </div>
@@ -72,6 +76,7 @@
         </div> 
     </template>
     <script src="./script/script.js"></script>
+    <script src="./script/validate.js"></script>
 </body>
 
 </html>

@@ -15,11 +15,12 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
-    text-align: center;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .form__button:hover {
     opacity: 0.8;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 320px) {
