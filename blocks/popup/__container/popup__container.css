@@ -8,7 +8,7 @@
     position: relative;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
     .popup__container {
         min-width: 282px;
         min-height: 322px;
