@@ -1,5 +1,6 @@
 import { Card } from './Card.js';
 import { FormValidator } from './validate.js';
+import { initialCards } from './initialCards.js';
 
 //Переменные
 const profilePopup = document.getElementById("profilePopup");
@@ -33,7 +34,7 @@ initialCards.forEach((item) => {
 function handleImageClick(name, link) {
     popupElementImage.src = link;
     popupElementTitle.textContent = name;
-    openPopup(imagePopup);
+    openPopup(popupImage);
 }
 
 function createCard(item) {
