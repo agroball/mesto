@@ -1,14 +1,13 @@
+import '../pages/index.css';
+
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/validate.js';
 import { initialCards } from '../utils/initialCards.js';
 import { Section } from '../components/Section.js';
 import { profilePopup, closeButton, editButton, config, addButton, popupAdd, closeAddButton, popupImage, secondNameInput, listContainerElements, inputElementTitle, inputElementLink, popupElementImage, popupElementTitle, closeImageButton, profileTitleNode, profileParagraphNode, profileForm, formsAdd, firstNameInput } from '../utils/constants.js';
-import { Popup } from '../components/Popup.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { UserInfo } from '../components/UserInfo.js';
-
-import '../pages/index.css';
 
 //добавление валидации в формам
 const validAdd = new FormValidator(config, formsAdd);
@@ -21,7 +20,7 @@ validProfile.enableValidation();
 const cardList = new Section({
         items: initialCards,
         renderer: (item) => {
-            createCard(item);
+            const card = createCard(item);
         }
     },
     listContainerElements
@@ -70,11 +69,13 @@ function submitForm(data) {
     imageAddPopup.close();
 }
 addButton.addEventListener('click', () => {
+    validAdd.resetValidation();
     imageAddPopup.open();
 });
 
-function addNewCard(data) {
-    const cardText = data.name;
-    const cardLink = data.link;
-    const card = createCard({ name: cardText, link: cardLink, alt: cardText });
+function addNewCard({ name, link, alt }) {
+    const cardText = name;
+    const cardLink = link;
+    const cardAlt = alt;
+    const card = createCard({ name: cardText, link: cardLink, alt: cardAlt });
 }

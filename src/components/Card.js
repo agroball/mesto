@@ -2,7 +2,6 @@ export class Card {
     constructor(data, cardSelector, handleImageClick) {
         this._name = data.name;
         this._link = data.link;
-        this._alt = data.alt;
         this._cardSelector = cardSelector;
         this._handleImageClick = handleImageClick;
     }
@@ -14,6 +13,7 @@ export class Card {
         //удаление карточки
     _activateTrashButton() {
         this._element.remove();
+
     }
 
     _setEventListener() {
@@ -27,7 +27,7 @@ export class Card {
         });
         //повесить на кнопку слушатель с данными name и link из массива
         this._cardImage.addEventListener('click', () => {
-            this._handleImageClick(this._name, this._link, this._alt)
+            this._handleImageClick(this._name, this._link)
         });
     }
 
@@ -40,7 +40,6 @@ export class Card {
         this._element.querySelector('.element__text').textContent = this._name;
         this._cardImage = cardPhotoElement;
         this._cardImage.src = this._link;
-        this._cardImage.alt = this._name;
         //вызываем слушатели
         this._setEventListener(cardPhotoElement);
         return this._element;

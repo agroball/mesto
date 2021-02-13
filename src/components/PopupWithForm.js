@@ -3,7 +3,7 @@ export class PopupWithForm extends Popup {
     constructor(popupSelector, formSubmit) {
         super(popupSelector)
         this._formSubmit = formSubmit;
-        this._formSelector = this._popupSelector.querySelector('.form');
+        this._formSelector = this._popup.querySelector('.form');
 
     }
 
@@ -14,10 +14,6 @@ export class PopupWithForm extends Popup {
             this._formValues[input.name] = input.value;
         });
         return this._formValues; // возвращаем объект значений
-    }
-    _formSubmitHandler() {
-        this._formSubmit(this._getInputValues());
-
     }
 
     setEventListeners() {

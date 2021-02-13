@@ -3,6 +3,7 @@ export class FormValidator {
             this._config = config;
             this._form = form;
             this._button = form.querySelector(this._config.submitButtonSelector);
+            this._input = form.querySelector(this._config.InputSelector);
         }
         // метод показывает ошибку
     _showError(input) {
@@ -56,4 +57,7 @@ export class FormValidator {
         this._setEventListeners();
     }
 
+    resetValidation() {
+        this._setButtonState();
+    }
 }

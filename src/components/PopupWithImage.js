@@ -3,15 +3,14 @@ import { Popup } from './Popup.js';
 export class PopupWithImage extends Popup {
     constructor(popupSelector) {
         super(popupSelector)
+        this._popupElementImage = this._popup.querySelector('.popup__image');
+        this._popupElementTitle = this._popup.querySelector('.popup__title');
     }
 
     open(name, link, alt) {
-        const popupElementImage = document.querySelector('.popup__image');
-        const popupElementTitle = document.querySelector('.popup__title');
-        popupElementImage.src = link;
-        popupElementTitle.alt = alt;
-        popupElementTitle.textContent = name;
-        super.setEventListeners();
+        this._popupElementImage.src = link;
+        this._popupElementImage.alt = alt;
+        this._popupElementTitle.textContent = name;
         super.open();
     }
 }
