@@ -2,16 +2,12 @@ export class Card {
     constructor(data, cardSelector, handleImageClick) {
         this._name = data.name;
         this._link = data.link;
+        this._alt = data.alt;
         this._cardSelector = cardSelector;
         this._handleImageClick = handleImageClick;
     }
 
-    _getTemplate() {
-            //клонирует карточки из массива
-            const cardElement = document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
-            return cardElement;
-        }
-        //активация лайка
+    //активация лайка
     _activateLikeButton() {
             this._element.querySelector('.element__like').classList.toggle('element__like_active');
         }
@@ -31,23 +27,28 @@ export class Card {
         });
         //повесить на кнопку слушатель с данными name и link из массива
         this._cardImage.addEventListener('click', () => {
-            this._handleImageClick(this._name, this._link)
+            this._handleImageClick(this._name, this._link, this._alt)
         });
     }
 
     generateCard() {
         this._element = this._getTemplate();
-        //создаем переменную привязанную к элементу ссылки
-        //даем картинке ссылку(.src) и alt
+        // создаем переменную привязанную к элементу ссылки
+        // даем картинке ссылку(.src) и alt
         const cardPhotoElement = this._element.querySelector('.element__link');
+        // привязываем текст к карточке
+        this._element.querySelector('.element__text').textContent = this._name;
         this._cardImage = cardPhotoElement;
         this._cardImage.src = this._link;
         this._cardImage.alt = this._name;
-        //привязываем текст к карточке
-        this._element.querySelector('.element__text').textContent = this._name;
         //вызываем слушатели
-        this._setEventListener();
+        this._setEventListener(cardPhotoElement);
         return this._element;
     }
 
+    _getTemplate() {
+        //клонирует карточки из массива
+        const cardElement = document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
+        return cardElement;
+    }
 }
