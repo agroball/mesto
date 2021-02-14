@@ -35,9 +35,9 @@ function createCard(data) {
     return cardElement;
 }
 //присваивание элементов и открытие картинка попап берет из Card.js
-function handleImageClick(name, link, alt) {
-    const Fullsize = new PopupWithImage(popupImage)
-    Fullsize.open(name, link, alt);
+function handleImageClick(name, link) {
+    const Fullsize = new PopupWithImage(popupImage);
+    Fullsize.open(name, link);
 }
 
 const imagePopup = new PopupWithImage(popupImage)

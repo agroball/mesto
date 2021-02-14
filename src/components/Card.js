@@ -40,6 +40,7 @@ export class Card {
         this._element.querySelector('.element__text').textContent = this._name;
         this._cardImage = cardPhotoElement;
         this._cardImage.src = this._link;
+        this._cardImage.alt = this._name;
         //вызываем слушатели
         this._setEventListener(cardPhotoElement);
         return this._element;
