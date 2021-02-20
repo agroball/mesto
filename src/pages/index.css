@@ -35,9 +35,16 @@
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__close-button/popup__close-button-image.css);
 @import url(../blocks/popup/__container/popup__container-image.css);
-
-/* // */
-
 @import url(../blocks/popup/__input/_state/popup__input_state_invalid.css);
 @import url(../blocks/form/__button/_invalid/form__button_invalid.css);
 @import url(../blocks/error/error.css);
+
+/* dfdf */
+
+@import url(../blocks/popup/__container/_agree/popup__container_agree.css);
+@import url(../blocks/form/__button/_agree/form__button_agree.css);
+@import url(../blocks/popup/__close-button/popup__close-button-agree.css);
+@import url(../blocks/element/__number/element__number.css);
+@import url(../blocks/popup/__container/popup__container-avatar.css);
+@import url(../blocks/profile/__avatar/profile__avatar-button.css);
+@import url(../blocks/profile/__avatar/profile__avatar-container.css);

@@ -14,7 +14,10 @@
     <main class="main">
         <section class="profile">
             <div class="profile__header">
-                <img class="profile__avatar" src="<%=require('./images/image.jpg')%>" alt="Аватар">
+                <div class="profile__avatar-container">
+                    <img class="profile__avatar" src="#" alt="#">
+                    <button class="profile__avatar-button"></button>
+                </div>
                 <div class="profile__info">
                     <div class="profile__line">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -49,9 +52,9 @@
             <button class="popup__close-button" type="button" id="closeAddButton"></button>
             <form class="form" name="form" id="formAddCard" novalidate>
                 <h2 class="form__header">Новое Место</h2>
-                <input id="title" name="name" type="text" minlength="2" maxlength="30" class="form__name" placeholder="Название" required>
+                <input id="title" name="title__add" type="text" minlength="2" maxlength="30" class="form__name" placeholder="Название" required>
                 <span id="title-error" class="error"></span>
-                <input id="link" name="link" type="url" class="form__name" placeholder="Ссылка на картинку" required>
+                <input id="link" name="link__add" type="url" class="form__name" placeholder="Ссылка на картинку" required>
                 <span id="link-error" class="error"></span>
                 <button type="submit" class="form__button" id="submitAdd">Создать</button>
             </form>
@@ -64,12 +67,36 @@
             <h3 class="popup__title"></h3>
         </div>
     </section>
+
+    <section class="popup" id="agreePopup">
+        <div class="popup__container popup__container_agree">
+            <button class="popup__close-button popup__close-button-agree" type="button" id="agreeCloseButton"></button>
+            <form class="form" name="form" id="agreeForm" novalidate>
+                <h2 class="form__header">Вы уверены?</h2>
+                <button type="submit" class="form__button form__button_agree" id="agreeSubmit">Да</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="popup" id="avatarPopup">
+        <div class="popup__container popup__container-avatar">
+            <button class="popup__close-button" type="button" id="closeAvatarButton"></button>
+            <form class="form" name="form" id="formAvatar" novalidate>
+                <h2 class="form__header">Обновить аватар</h2>
+                <input id="avatar" type="url" class="form__name" name="avatar__link" placeholder="Ссылка на картинку" required>
+                <span id="avatar-error" class="error"></span>
+                <button type="submit" class="form__button" id="submitAvatar">Сохранить</button>
+            </form>
+        </div>
+    </section>
+
     <template class="template">
         <div class="element"> 
             <img class="element__link" src=" " alt=" "> 
             <div class="element__header"> 
                 <h2 class="element__text"></h2> 
-                <button class="element__like" type="button"></button> 
+                <button class="element__like" type="button"></button>
+                <span class="element__number"></span>
                 <button class="element__trash" type="button"></button>
             </div> 
         </div> 

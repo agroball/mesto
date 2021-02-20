@@ -20,6 +20,12 @@ export const inputElementLink = document.getElementById("link");
 export const popupElementImage = document.querySelector('.popup__image');
 export const popupElementTitle = document.querySelector('.popup__title');
 // const submitElementProfile = document.getElementById("submitProfile");
+export const avatarButton = document.querySelector('.profile__avatar-button');
+export const avatarForm = document.getElementById("formAvatar");
+export const deteleForm = document.getElementById("agreePopup");
+
+export const popupFormAvatar = document.getElementById("avatarPopup");
+
 //валидация
 export const config = {
     formSelector: '.form',

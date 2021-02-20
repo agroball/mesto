@@ -1,34 +1,23 @@
 export class Card {
-    constructor(data, cardSelector, handleImageClick) {
-        this._name = data.name;
-        this._link = data.link;
+    constructor({ name, link, likes, owner, _id, userId }, cardSelector, handleImageClick, deleteHandler, addLike, removeLike) {
+        this._name = name;
+        this._link = link;
+        this._likes = likes;
+        this._ownerId = owner._id;
+        this._imageId = _id;
+        this._userId = userId;
         this._cardSelector = cardSelector;
         this._handleImageClick = handleImageClick;
+        this._deleteHandler = deleteHandler;
+        this._addLike = addLike;
+        this._removeLike = removeLike;
+        this._likeButton = this._likeButton.bind(this);
     }
 
-    //активация лайка
-    _activateLikeButton() {
-            this._element.querySelector('.element__like').classList.toggle('element__like_active');
-        }
-        //удаление карточки
-    _activateTrashButton() {
-        this._element.remove();
-
-    }
-
-    _setEventListener() {
-        //повесить на кнопку лайка
-        this._element.querySelector('.element__like').addEventListener('click', () => {
-            this._activateLikeButton();
-        });
-        //повесить на кнопку удаления слушатель клика
-        this._element.querySelector('.element__trash').addEventListener('click', () => {
-            this._activateTrashButton();
-        });
-        //повесить на кнопку слушатель с данными name и link из массива
-        this._cardImage.addEventListener('click', () => {
-            this._handleImageClick(this._name, this._link)
-        });
+    _getTemplate() {
+        //клонирует карточки из массива
+        const cardElement = document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
+        return cardElement;
     }
 
     generateCard() {
@@ -42,13 +31,55 @@ export class Card {
         this._cardImage.src = this._link;
         this._cardImage.alt = this._name;
         //вызываем слушатели
-        this._setEventListener(cardPhotoElement);
+        this._element.querySelector('.element__number').textContent = this._likes.length;
+        this._likes.forEach((item) => {
+            if (item._id === this._userId) {
+                this._element.querySelector('.element__like').classList.add('element__like_active');
+            }
+        })
+        this._removeButton = this._element.querySelector('.element__trash');
+        this._setEventListener();
+        this.checkId();
         return this._element;
     }
 
-    _getTemplate() {
-        //клонирует карточки из массива
-        const cardElement = document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
-        return cardElement;
+    _setEventListener() {
+        this._element.querySelector('.element__like').addEventListener('click', this._likeButton);
+        this._removeButton.addEventListener('click', this._deleteHandler);
+        //повесить на кнопку слушатель с данными name и link из массива
+        this._cardImage.addEventListener('click', () => {
+            this._handleImageClick(this._name, this._link)
+        });
     }
+
+
+
+    _likeButton(evt) {
+        if (!evt.target.classList.contains('element__like_active')) {
+            this._element.querySelector('.element__like').classList.add('element__like_active');
+            this._addLike();
+        } else {
+            this._element.querySelector('.element__like').classList.remove('element__like_active');
+            this._removeLike();
+        }
+    }
+
+    checkId(removeButton) {
+        if (this._ownerId !== this._userId) {
+            this._removeButton.remove();
+        }
+    }
+
+    //удаление карточки
+    _activateTrashButton() {
+        this._element.remove();
+    }
+    returnCardId() {
+        return this._imageId;
+    }
+    changeLikesCounter(counter) {
+        this._element.querySelector('.element__number').textContent = counter;
+
+    }
+
 }
