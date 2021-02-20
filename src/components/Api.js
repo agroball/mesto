@@ -35,6 +35,18 @@ export class Api {
             .catch(this._showError);
     }
 
+    updateAvatarImage(imageUrl) {
+        return fetch(`${this.baseUrl}/users/me/avatar`, {
+                method: 'PATCH',
+                headers: this.headers,
+                body: JSON.stringify({
+                    avatar: imageUrl
+                })
+            })
+            .then(this._checkResult)
+            .catch(this._showError);
+    }
+
     addCard(name, link) {
         return fetch(`${this.baseUrl}/cards`, {
                 method: 'POST',
@@ -58,19 +70,6 @@ export class Api {
             .then(this._checkResult)
             .catch(this._showError);
     }
-
-    updateAvatarImage(imageUrl) {
-        return fetch(`${this.baseUrl}/users/me/avatar`, {
-                method: 'PATCH',
-                headers: this.headers,
-                body: JSON.stringify({
-                    avatar: imageUrl
-                })
-            })
-            .then(this._checkResult)
-            .catch(this._showError);
-    }
-
 
     addLike(cardId) {
         return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {

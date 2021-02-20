@@ -52,8 +52,6 @@ export class Card {
         });
     }
 
-
-
     _likeButton(evt) {
         if (!evt.target.classList.contains('element__like_active')) {
             this._element.querySelector('.element__like').classList.add('element__like_active');
@@ -70,16 +68,16 @@ export class Card {
         }
     }
 
-    //удаление карточки
-    _activateTrashButton() {
-        this._element.remove();
-    }
     returnCardId() {
         return this._imageId;
     }
     changeLikesCounter(counter) {
-        this._element.querySelector('.element__number').textContent = counter;
+            this._element.querySelector('.element__number').textContent = counter;
 
+        }
+        //удаление карточки
+    removeCard() {
+        this._element.remove();
+        this._element = null;
     }
-
 }

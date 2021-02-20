@@ -12,13 +12,6 @@ export class UserInfo {
         }
     }
 
-
-    // принимает новые данные пользователя и передает обратно
-    // setUserInfo(name, job) {
-    //     this._name.textContent = name;
-    //     this._job.textContent = job;
-    // }
-
     setAvatar(data) {
         this._avatar.src = data.avatar__link === '' ? this._avatar.src : data.avatar__link;
     }
