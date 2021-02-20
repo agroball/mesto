@@ -1,7 +1,7 @@
 import '../pages/index.css';
 
 import { Card } from '../components/Card.js';
-import { FormValidator } from '../components/validate.js';
+import { FormValidator } from '../components/FormValidator.js';
 import { initialCards } from '../utils/initialCards.js';
 import { Section } from '../components/Section.js';
 import { profilePopup, closeButton, avatarForm, popupFormAvatar, deteleForm, avatarButton, editButton, config, addButton, popupAdd, closeAddButton, popupImage, secondNameInput, listContainerElements, inputElementTitle, inputElementLink, popupElementImage, popupElementTitle, closeImageButton, profileTitleNode, profileParagraphNode, profileForm, formsAdd, firstNameInput } from '../utils/constants.js';
@@ -29,10 +29,10 @@ validProfile.enableValidation();
 const validationAvatar = new FormValidator(config, avatarForm);
 validationAvatar.enableValidation();
 
-const popupUpdateAvatar = new PopupWithForm(popupFormAvatar, submitAvatarForm);
-popupUpdateAvatar.setEventListeners();
 
 const inputsProfile = new UserInfo({ nameSelector: '.profile__title', jobSelector: '.profile__paragraph', avatarSelector: '.profile__avatar' });
+
+const fullsize = new PopupWithImage(popupImage);
 
 const cardList = new Section(
     (item) => {
@@ -112,15 +112,14 @@ avatarButton.addEventListener('click', () => {
     })
     //присваивание элементов и открытие картинка попап берет из Card.js
 function handleImageClick(name, link) {
-    const Fullsize = new PopupWithImage(popupImage);
-    Fullsize.open(name, link);
+    fullsize.open(name, link);
 }
 
 // Рендер картинок при загрузке
 api.getInitialCards()
     .then((res) => {
         cardList.render(res)
-            // console.log(res)
+        console.log(res)
     })
     .catch((err) => {
         console.log(err);
@@ -141,7 +140,6 @@ const removeCard = (card) => {
         api.deleteCard(card.returnCardId())
             .then((res) => {
                 popupDeleteCard.close();
-                console.log(card);
                 card.removeCard();
             })
             .catch((err) => {
@@ -161,10 +159,11 @@ const submitAvatarForm = (imageUrl) => {
         .catch((err) => {
             console.log(err)
         })
-    console.log(imageUrl);
     popupUpdateAvatar.close();
 
 }
+const popupUpdateAvatar = new PopupWithForm(popupFormAvatar, submitAvatarForm);
+popupUpdateAvatar.setEventListeners();
 
 function renderLoading(popupSelector, isLoading) {
     const buttonElement = popupSelector.querySelector('.form__button');

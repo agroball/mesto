@@ -4,6 +4,7 @@ export class FormValidator {
             this._form = form;
             this._button = form.querySelector(this._config.submitButtonSelector);
             this._input = form.querySelector(this._config.InputSelector);
+            this._inputList = form.querySelectorAll(this._config.inputSelector);
         }
         // метод показывает ошибку
     _showError(input) {
@@ -37,17 +38,26 @@ export class FormValidator {
         }
     }
     _setEventListeners() {
-            const inputList = this._form.querySelectorAll(this._config.inputSelector);
+        // const inputList = this._form.querySelectorAll(this._config.inputSelector);
+        this._inputList.forEach(input => {
+            input.addEventListener('input', (evt) => {
+                this._checkInputValidity(input);
+                this._setButtonState();
+            })
+        });
 
-            inputList.forEach(input => {
-                input.addEventListener('input', (evt) => {
-                    this._checkInputValidity(input);
-                    this._setButtonState();
-                })
-            });
+    }
 
-        }
-        //вызов валидации
+    _setEventListener() {
+        this._inputList.forEach(input => {
+            input.addEventListener('input', (evt) => {
+                this._checkInputValidity(input);
+                this._setButtonState(this._form.checkValidity());
+            })
+        });
+    }
+
+    //вызов валидации
     enableValidation() {
         this._form.addEventListener("submit", (evt) => {
             evt.preventDefault();
@@ -55,7 +65,14 @@ export class FormValidator {
         this._setEventListeners();
     }
 
+    // resetValidation() {
+    //     this._setButtonState();
+    // }
+
     resetValidation() {
+        this._inputList.forEach((input) => {
+            this._hideError(input)
+        });
         this._setButtonState();
     }
 }
