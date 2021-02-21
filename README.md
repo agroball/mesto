@@ -4,7 +4,7 @@ Git Bash если вы используете Windows OS.
 Установка
 Склонировать проект на ПК:
 
-git clone https://github.com/Prysya/Mesto.git
+git clone https://github.com/agroball/mesto.git
 Установить зависимости
 
 npm install
